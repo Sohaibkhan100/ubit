@@ -44,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               onChanged: (value) {
                 setState(() {
                   _height = value.toInt();
+                  list = List.filled(_height, 0);
+                  print(list);
                 });
                 widget.onChange(_height);
               },
@@ -54,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   return AgeWeightWidget(
                       onChange: (weightVal) {
-                        list.add(weightVal);
+                        list[index] = weightVal;
                       },
                       title: 'numbers',
                       initValue: 50,
